@@ -1,0 +1,18 @@
+<div class="row mt-1">
+    <div class="col-sm-4 my-drop-zone"
+         (fileOver)="fileOverDrop($event)"
+         [uploader]="uploader"
+         [ngClass]="{'file-over' : hasBaseDropZoneOver}"
+         ng2FileDrop >
+        drop your picture here!
+    </div>
+    <div class="col-sm-7">
+       <div class="row mt-2" *ngFor="let item of uploader.queue">
+           <progressbar [striped]="true" [animate]="true"
+            [value]="item.progress">
+        {{item?.file?.name}} - {{item?.progress}}%
+           </progressbar>
+       </div>
+    </div>
+        
+</div>
